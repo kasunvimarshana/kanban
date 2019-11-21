@@ -27,6 +27,7 @@
     "dependencies": {
         "glyphicons-only-bootstrap": "^1.0.1",
         "moment": "^2.24.0",
+        "polyfills": "^2.1.1",
         "sweetalert": "^2.1.2"
     }
 }
