@@ -1,0 +1,88 @@
+/* common */
+.change-opacity{
+    /* These three lines are for transparency in all browsers. */
+    /*-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";*/
+    /* Opacity for IE8 and lower */
+    /*filter: alpha(opacity=50);*/
+    /* Opacity for Modern Browsers */
+    /*opacity: 0.5;*/
+}
+
+.info-box-number{
+    word-wrap: break-word !important;
+}
+
+.modal-body{
+    word-wrap: break-word !important;
+}
+
+/* tooltip */
+.tooltip{
+    position: fixed;
+    z-index: 999999999 !important;
+}
+
+/* datatable */
+/*table.dataTable tbody td{
+    word-break: break-word !important;
+    vertical-align: top;
+}*/
+
+/*table td {
+    transition: all .5s;
+    max-width: 120px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: hidden;
+}*/
+
+.bg-green{
+    background-color: rgba(34,139,34,1) !important;
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+.bg-red{
+    background-color: rgba(128,0,0,1) !important;
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+.bg-yellow{
+    background-color: rgba(255,190,0,1) !important;
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+.disabled_href{
+    color: inherit;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+/* font-size */
+.font-size-1-0{
+    font-size: 1rem !important;
+}
+
+.font-size-1-5{
+    font-size: 1.5rem !important;
+}
+
+.font-size-2-0{
+    font-size: 2rem !important;
+}
+
+.dashboard-font-1{
+    font-family: liquid_crystal !important;
+}
+
+/* fullscreen-modal */
+.modal-full{
+    min-width: 100%;
+    margin: 0;
+}
+.modal-full .modal-content{
+    min-height: 100vh;
+}

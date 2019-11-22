@@ -25,7 +25,13 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "admin-lte": "^3.0.1",
+        "bootbox": "^5.3.4",
+        "bootstrap-validator": "^0.11.9",
         "glyphicons-only-bootstrap": "^1.0.1",
+        "inputmask": "^4.0.9",
+        "ionicons": "^2.0.1",
+        "jquery-easy-loading": "^2.0.0-rc.2",
         "moment": "^2.24.0",
         "polyfills": "^2.1.1",
         "sweetalert": "^2.1.2"
