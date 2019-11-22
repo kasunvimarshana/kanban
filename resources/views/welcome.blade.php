@@ -41,6 +41,11 @@
                         <div class="col">
                             <!-- small card -->
                             <div class="small-box bg-secondary p-0 m-0">
+                                <!-- Loading (remove the following to stop the loading)-->
+                                <div class="overlay">
+                                    <i class="fas fa-3x fa-sync-alt"></i>
+                                </div>
+                                <!-- /.Loading (remove the following to stop the loading)-->
                                 <div class="inner">
                                     <!-- h3>0<sup style="font-size: 20px">%</sup></h3 -->
                                     <!-- p>Text</p -->

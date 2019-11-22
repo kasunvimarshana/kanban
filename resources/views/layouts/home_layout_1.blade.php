@@ -62,7 +62,7 @@
     <div class="col bg-light bg-gradient-light p-0 m-0">
         
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper h-100">
         <!-- Main content -->
         <section class="content container-fluid" id="container_fluid">
 
