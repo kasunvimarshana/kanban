@@ -297,7 +297,7 @@ class LineKanbanBinController extends Controller
                 $lineKanbanBinObject = $lineKanbanBinObject->whereHas('lineKanbanBinRequests', function($query){
                     $query = $query->where('is_visible', '=', true);
                     $query = $query->where('is_active', '=', true);
-                }, '>=', 1);
+                }, '=', 1);
                 
                 $lineKanbanBinObjectArray = $lineKanbanBinObject->get();
 

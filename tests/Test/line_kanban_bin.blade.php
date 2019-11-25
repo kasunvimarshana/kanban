@@ -746,16 +746,3 @@
 </template>
 <!-- /.template-03 -->
 @endsection
-
-@section('section_script_document')
-    @parent
-    @includeIf('partials.script.event_source_line_kanban_bin_01', array())
-@endsection
-
-@push('stack_script')
-<script>
-    $(function(){
-        "use strict";
-    });
-</script>
-@endpush
