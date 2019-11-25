@@ -22,7 +22,7 @@
         <div class="row">
             
         <!-- -->
-        <div class="col col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 p-3">
+        <div class="col col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 p-3">
             <div class="card text-white bg-light border-light">
                 <!-- div class="card-header">
                     <div class="row no-gutters">
@@ -42,9 +42,9 @@
                             <!-- small card -->
                             <div class="small-box bg-secondary p-0 m-0">
                                 <!-- Loading (remove the following to stop the loading)-->
-                                <div class="overlay">
-                                    <i class="fas fa-3x fa-sync-alt"></i>
-                                </div>
+                                <!-- div class="overlay">
+                                    <i class="fas fa-3x fa-sync fa-sync-alt fa-spin"></i>
+                                </div -->
                                 <!-- /.Loading (remove the following to stop the loading)-->
                                 <div class="inner">
                                     <!-- h3>0<sup style="font-size: 20px">%</sup></h3 -->
@@ -137,7 +137,7 @@
         <!-- -->
             
         <!-- -->
-        <div class="col col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 p-3">
+        <div class="col col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 p-3">
             <div class="card text-white bg-light border-light">
                 <!-- div class="card-header">
                     <div class="row no-gutters">
@@ -247,7 +247,7 @@
         <!-- -->
             
         <!-- -->
-        <div class="col col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 p-3">
+        <div class="col col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 p-3">
             <div class="card text-white bg-light border-light">
                 <!-- div class="card-header">
                     <div class="row no-gutters">
@@ -357,7 +357,7 @@
         <!-- -->
             
         <!-- -->
-        <div class="col col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 p-3">
+        <div class="col col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 p-3">
             <div class="card text-white bg-light border-light">
                 <!-- div class="card-header">
                     <div class="row no-gutters">

@@ -32,6 +32,7 @@
         "inputmask": "^4.0.9",
         "ionicons": "^2.0.1",
         "jquery-easy-loading": "^2.0.0-rc.2",
+        "masonry-layout": "^4.2.2",
         "moment": "^2.24.0",
         "polyfills": "^2.1.1",
         "sweetalert": "^2.1.2"

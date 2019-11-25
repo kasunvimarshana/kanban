@@ -11,6 +11,12 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::match(['get', 'post'], 'line-kanban-bins/select-all-line-kanban-bins-01', array('uses' => 'LineKanbanBinController@selectAllLineKanbanBins01'))->name('LineKanbanBinController.selectAllLineKanbanBins01');
+
+Route::match(['get', 'post'], 'line-kanban-bins/select-all-line-kanban-bins-02', array('uses' => 'LineKanbanBinController@selectAllLineKanbanBins02'))->name('LineKanbanBinController.selectAllLineKanbanBins02');

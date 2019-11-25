@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Creating Custom Template for Bootstrap 4 Popovers</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+	.bs-example{
+    	margin: 150px 50px;
+    }
+    /* Styles for custom popover template */
+    .popover-footer{
+        padding: 6px 14px;
+        background-color: #f7f7f7;
+        border-top: 1px solid #ebebeb;
+        text-align: right;
+    }
+</style>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({
+        html: true,
+        template: '<div class="popover"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div><div class="popover-footer"><a href="#" class="btn btn-info btn-sm">Close</a></div></div>'
+    });
+    
+    // Custom jQuery to hide popover on click of the close button
+    $(document).on("click", ".popover-footer .btn" , function(){
+        $(this).parents(".popover").popover('hide');
+    });
+});
+</script>
+</head>
+<body>
+<div class="bs-example">
+    <p><button type="button" class="btn btn-primary btn-lg" data-toggle="popover" title="Custom Popover Template" data-content="A simple example of a customized Bootstrap popover that displays a footer with close button on every popover without adding any extra markup to the popover HTML code.">Customized Popover</button></p>
+    <p><strong>Note:</strong> Click on the buttons to show/hide the popover.</p>
+</div>
+</body>
+</html>                            
