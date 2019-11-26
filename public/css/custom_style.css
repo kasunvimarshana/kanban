@@ -38,6 +38,7 @@
     overflow: hidden;
 }*/
 
+/* background */
 .bg-green{
     background-color: rgba(34,139,34,1) !important;
     color: rgba(0, 0, 0, 1) !important;
@@ -51,6 +52,92 @@
 .bg-yellow{
     background-color: rgba(255,190,0,1) !important;
     color: rgba(0, 0, 0, 1) !important;
+}
+
+/* background animation */
+@-webkit-keyframes colour_animation_01{
+    /*from { color: rgba(0, 0, 0, 0); }
+    to { color: rgba(255, 255, 255, 1); }*/
+    0% {background-color: rgba(155, 100, 100, 1);}
+    25% {background-color: rgba(180, 95, 95, 1);}
+    50% {background-color: rgba(205, 80, 80, 1);}
+    75% {background-color: rgba(230, 75, 75, 1);}
+    100% {background-color: rgba(255, 60, 60, 1);}
+}
+@-moz-keyframes colour_animation_01{
+    /*from { color: rgba(0, 0, 0, 0); }
+    to { color: rgba(255, 255, 255, 1); }*/
+    0% {background-color: rgba(155, 100, 100, 1);}
+    25% {background-color: rgba(180, 95, 95, 1);}
+    50% {background-color: rgba(205, 80, 80, 1);}
+    75% {background-color: rgba(230, 75, 75, 1);}
+    100% {background-color: rgba(255, 60, 60, 1);}
+}
+@-ms-keyframes colour_animation_01{
+    /*from { color: rgba(0, 0, 0, 0); }
+    to { color: rgba(255, 255, 255, 1); }*/
+    0% {background-color: rgba(155, 100, 100, 1);}
+    25% {background-color: rgba(180, 95, 95, 1);}
+    50% {background-color: rgba(205, 80, 80, 1);}
+    75% {background-color: rgba(230, 75, 75, 1);}
+    100% {background-color: rgba(255, 60, 60, 1);}
+}
+@-o-keyframes colour_animation_01{
+    /*from { color: rgba(0, 0, 0, 0); }
+    to { color: rgba(255, 255, 255, 1); }*/
+    0% {background-color: rgba(155, 100, 100, 1);}
+    25% {background-color: rgba(180, 95, 95, 1);}
+    50% {background-color: rgba(205, 80, 80, 1);}
+    75% {background-color: rgba(230, 75, 75, 1);}
+    100% {background-color: rgba(255, 60, 60, 1);}
+}
+@keyframes colour_animation_01{
+    /*from { color: rgba(0, 0, 0, 0); }
+    to { color: rgba(255, 255, 255, 1); }*/
+    0% {background-color: rgba(155, 100, 100, 1);}
+    25% {background-color: rgba(180, 95, 95, 1);}
+    50% {background-color: rgba(205, 80, 80, 1);}
+    75% {background-color: rgba(230, 75, 75, 1);}
+    100% {background-color: rgba(255, 60, 60, 1);}
+}
+
+.bg-animation-01{ 
+    /*background-color: rgba(0, 0, 0, 1);*/
+    -webkit-animation-name: colour_animation_01;
+    -moz-animation-name: colour_animation_01;
+    -ms-animation-name: colour_animation_01;
+    -o-animation-name: colour_animation_01;
+    animation-name: colour_animation_01;
+    -webkit-animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    -ms-animation-duration: 3s;
+    -o-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+    -o-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -moz-animation-direction: alternate;
+    -ms-animation-direction: alternate;
+    -o-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    -ms-animation-timing-function: ease;
+    -o-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-fill-mode: none;
+    -moz-animation-fill-mode: none;
+    -ms-animation-fill-mode: none;
+    -o-animation-fill-mode: none;
+    animation-fill-mode: none;
 }
 
 .disabled_href{

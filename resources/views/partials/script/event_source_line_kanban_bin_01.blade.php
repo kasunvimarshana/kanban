@@ -31,6 +31,7 @@ $(function(){
     var template_element_id_03 = "#template_element_03";
     var template_element_container_id_01 = "#element_container_01";
     var id_prefix = "kanban_bin_01";
+    var time_wait_01 = 10;
     
     function isFunction(functionToCheck) {
         return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
@@ -208,6 +209,10 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
         button_id_collapse_01_element.attr("data-target", ("#" + collapse_id_element_id));
         //button_id_collapse_01_element.attr("aria-controls", (collapse_id_element.attr("id")));
         button_id_collapse_01_element.attr("aria-controls", (collapse_id_element_id));
+        /*
+        button_id_collapse_01_element.click();
+        button_id_collapse_01_element.trigger("click");
+        */
         
         line_kanban_bin_requests = new Array();
         if( (temp_data_01.hasOwnProperty("line_kanban_bin_requests")) && (temp_data_01.line_kanban_bin_requests != void(0)) ){
@@ -264,19 +269,45 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
             quantity_response_element.data("id", quantity_response_element_id);
             quantity_response_element.text( temp_data_02.quantity_response );
             
+            /*
+            var inline_script_01_text = null;
+            inline_script_01_text = "(function(){";
+            //inline_script_01_text += "console.log('Test');";
+            //inline_script_01_text += "setTimeout(function(){ alert('Test'); }, 3000);";
+            inline_script_01_text += "})();";
+            var script_element_01 = document.createElement("script");
+            var inline_script_01 = document.createTextNode( inline_script_01_text );
+            script_element_01.appendChild(inline_script_01);
+            template_element_01_clone.append(script_element_01);
+            */
+            
+            var temp_time_01 = null;
+            var temp_time_02 = temp_data_02.time_request;
+            var temp_countdown_value = 0;
+            if( (temp_time_02 != void(0)) ){
+                temp_time_01 = moment();
+                temp_time_02 = moment(temp_time_02, 'YYYY-MM-DD HH:mm:ss', false);
+                temp_time_02 = temp_time_02.clone().add(time_wait_01, 'minutes');
+                temp_countdown_value = temp_time_02.diff(temp_time_01, 'minutes', false);
+            }
+            
+            /*if(){
+               .removeClass();
+            }*/
+            
             var countdown_id_01_element = template_element_01_clone.find("#countdown_id_01");
             var countdown_id_01_element_id = countdown_id_01_element.attr("id");
             countdown_id_01_element_id = (countdown_id_01_element_id + temp_id_01);
             countdown_id_01_element.attr("id", countdown_id_01_element_id);
             countdown_id_01_element.data("id", countdown_id_01_element_id);
-            countdown_id_01_element.text( temp_data_02.quantity_response );
+            countdown_id_01_element.text( temp_countdown_value );
             
             var countdown_id_02_element = template_element_01_clone.find("#countdown_id_02");
             var countdown_id_02_element_id = countdown_id_02_element.attr("id");
             countdown_id_02_element_id = (countdown_id_02_element_id + temp_id_01);
             countdown_id_02_element.attr("id", quantity_response_element_id);
             countdown_id_02_element.data("id", quantity_response_element_id);
-            countdown_id_02_element.text( temp_data_02.quantity_response );
+            countdown_id_02_element.text( temp_countdown_value );
         }else{
             //console.log("void(0)");
         }
@@ -287,7 +318,7 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                         ////////////////////////////////////////////////////////////////////////////////////////////////////////
                     }
                 }catch(exception){
-                    //console.log(exception);
+                    console.log(exception);
                 }
             }, false);
         }else{
@@ -308,7 +339,7 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
     <!-- --- -->
     <!-- -->
     <div class="col col-12 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-3">
-        <div class="card text-white bg-light border-light" id="card_id_01">
+        <div class="card text-white bg-primary border-light" id="card_id_01">
             <!-- div class="card-header text-muted p-0 m-0 border-0 rounded-1">
                 <div class="row no-gutters">
                     <div class="btn-toolbar w-100" role="toolbar" aria-label="Toolbar">
@@ -371,7 +402,7 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                                     <!-- list-group-item -->
                                     <li class="list-group-item flex-column align-items-start bg-transparent h-100 border-0 rounded-0 p-0 m-0">
                                         <div class="d-flex w-100 justify-content-between">
-                                            <div class="col w-100 collapse p-0" id="collapse_id">
+                                            <div class="col w-100 collapse p-0 show" id="collapse_id">
                                                 <div class="col col-12 w-100 p-0">
                                                     <!-- ------------------------------------------------------ -->
                                                     <ul class="list-group h-100 w-100">
@@ -481,13 +512,14 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                                 <!-- /.list-group -->
                             </div>
                             <div class="icon">
+                                <i class="fas fa-shopping-cart fa-fw" data-fa-mask="fas fa-circle"></i>
                                 <!--
                                 <span class="fa-stack fa-2x">
                                     <i class="fas fa-circle fa-stack-2x"></i>
                                     <i class="fas fa-shopping-cart fa-fw fa-sm" data-fa-transform="shrink-8"></i>
                                 </span>
                                 -->
-                                <i class="fas fa-shopping-cart fa-fw fa-sm text-lg" data-fa-mask="fas fa-circle"></i>
+                                <!-- i class="fas fa-shopping-cart fa-fw fa-sm text-lg" data-fa-mask="fas fa-circle"></i -->
                             </div>
                             <!-- a href="#" class="small-box-footer"> Text <i class="fas fa-arrow-circle-right"></i></a -->
                         </div>

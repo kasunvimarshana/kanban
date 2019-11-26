@@ -1,4 +1,17 @@
 <!-- ------------------------------------------------------------------------------------------ -->
+<script>
+var elem = document.getElementById("dynamicDiv"),
+    script = document.createElement('script');
+script.innerHTML = 
+    'function hello (val) {' +
+        'alert("hello " + val);' + 
+    '}';
+elem.appendChild(script);
+hello('world');
+</script>
+<!-- ------------------------------------------------------------------------------------------ -->
+
+<!-- ------------------------------------------------------------------------------------------ -->
 <?php
 
 function myWhichDepartmentFunction(whichDept,someVar1,someVar2) 
