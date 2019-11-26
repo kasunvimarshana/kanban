@@ -26,7 +26,7 @@ class LineKanbanBinRequest extends Model
     //protected $appends = array('field1', 'field2');
     //protected $attributes = array();
     //protected $guarded = array();
-    protected $fillable = array('id', 'pk', 'is_visible', 'is_active', 'status_id', 'time_request', 'time_response', 'quantity_request', 'quantity_response', 'company_id', 'strategic_business_unit_id', 'factory_id', 'line_id', 'line_kanban_bin_id');
+    protected $fillable = array('id', 'pk', 'is_visible', 'is_active', 'status_id', 'time_request', 'time_response', 'time_close', 'quantity_request', 'quantity_response', 'company_id', 'strategic_business_unit_id', 'factory_id', 'line_id', 'line_kanban_bin_id');
     //protected $hidden = array();
     //protected $casts = array();
     /**

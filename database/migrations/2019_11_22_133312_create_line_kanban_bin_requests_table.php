@@ -45,6 +45,7 @@ class CreateLineKanbanBinRequestsTable extends Migration
             //$table->text('image_uri')->nullable()->default(null)->comment('uniform resource identifier');//->index()
             $table->timestamp('time_request')->nullable()->useCurrent()->default(DB::raw('CURRENT_TIMESTAMP'))->comment('comment');//->index()
             $table->timestamp('time_response')->nullable()->useCurrent()->default(DB::raw('CURRENT_TIMESTAMP'))->comment('comment');//->index()
+            $table->timestamp('time_close')->nullable()->useCurrent()->default(DB::raw('CURRENT_TIMESTAMP'))->comment('comment');//->index()
             $table->double('quantity_request')->nullable()->default(0)->comment('comment');
             $table->double('quantity_response')->nullable()->default(0)->comment('comment');
             

@@ -170,6 +170,10 @@ class LineKanbanBinController extends Controller
                     //$query = $query->select('id');
                     $query = $query->where('is_visible', '=', true);
                     $query = $query->where('is_active', '=', true);
+                    $query = $query->latest();
+                    $query = $query->orderBy('id', 'desc');
+                    $query = $query->orderBy('created_at', 'desc');
+                    $query = $query->limit(5);
                 }));
                 
                 $lineKanbanBinObjectArray = $lineKanbanBinObject->get();
@@ -297,6 +301,7 @@ class LineKanbanBinController extends Controller
                 $lineKanbanBinObject = $lineKanbanBinObject->whereHas('lineKanbanBinRequests', function($query){
                     $query = $query->where('is_visible', '=', true);
                     $query = $query->where('is_active', '=', true);
+                    $query = $query->limit(1);
                 }, '=', 1);
                 
                 $lineKanbanBinObjectArray = $lineKanbanBinObject->get();
