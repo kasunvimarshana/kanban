@@ -48,6 +48,7 @@ class CreateLineKanbanBinRequestsTable extends Migration
             $table->timestamp('time_close')->nullable()->useCurrent()->default(DB::raw('CURRENT_TIMESTAMP'))->comment('comment');//->index()
             $table->double('quantity_request')->nullable()->default(0)->comment('comment');
             $table->double('quantity_response')->nullable()->default(0)->comment('comment');
+            $table->string('ip_address')->nullable()->comment('comment');//->index()
             
             $table->string('company_id')->nullable()->comment('comment');//->index()
             $table->string('strategic_business_unit_id')->nullable()->comment('comment');//->index()

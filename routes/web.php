@@ -25,3 +25,5 @@ Route::match(['get', 'post'], 'line-kanban-bins/select-all-line-kanban-bins-02',
 
 Route::get('line-kanban-bins/index', array('uses' => 'LineKanbanBinController@index'))->name('lineKanbanBin.index');
 Route::get('line-kanban-bin-requests/index', array('uses' => 'LineKanbanBinRequestController@index'))->name('lineKanbanBinRequest.index');
+
+Route::post('line-kanban-bin-requests/store', array('uses' => 'LineKanbanBinRequestController@store'))->name('lineKanbanBinRequest.store');

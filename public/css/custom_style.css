@@ -108,11 +108,11 @@
     -ms-animation-name: colour_animation_01;
     -o-animation-name: colour_animation_01;
     animation-name: colour_animation_01;
-    -webkit-animation-duration: 3s;
-    -moz-animation-duration: 3s;
-    -ms-animation-duration: 3s;
-    -o-animation-duration: 3s;
-    animation-duration: 3s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
     -webkit-animation-delay: 0s;
     -moz-animation-delay: 0s;
     -ms-animation-delay: 0s;
