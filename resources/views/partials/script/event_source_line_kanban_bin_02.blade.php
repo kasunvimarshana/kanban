@@ -8,17 +8,16 @@ $(function(){
     var reconnectFrequencySeconds = 1;
     /* *** */
     var optionData = new Object();//{};
-    optionData.url = "{!! route('lineKanbanBin.selectAllLineKanbanBins01', []) !!}";
+    optionData.url = "{!! route('lineKanbanBin.selectAllLineKanbanBins02', []) !!}";
     @php
     $setup_configuration_line_id = null;
     if( (session()->has('setup_configuration_line_id')) && (session()->exists('setup_configuration_line_id')) ){
         $setup_configuration_line_id = session()->get('setup_configuration_line_id', null);
     }else{
-        //$setup_configuration_line_id = null;
-        $setup_configuration_line_id = "line01";
+        $setup_configuration_line_id = null;
     }
     @endphp
-    optionData.url = "{!! route('lineKanbanBin.selectAllLineKanbanBins01', ['line_id' => $setup_configuration_line_id]) !!}";
+    optionData.url = "{!! route('lineKanbanBin.selectAllLineKanbanBins02', ['line_id' => $setup_configuration_line_id]) !!}";
     //var is_dirty = false;
     //optionData.id = "#id";
     //var element_01 = $("#id");

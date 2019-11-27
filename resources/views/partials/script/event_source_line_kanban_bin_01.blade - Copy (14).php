@@ -356,9 +356,7 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                                     }
                                 }, function(e){
                                     swal.close();
-                                    //template_element_01_clone.remove();
-                                    $(("#" + temp_id_01)).remove();
-                                    //window.location.reload(false);
+                                    window.location.reload(false);
                                 });
                             });
                             requestObject.fail(function(){
@@ -492,9 +490,7 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                                     }
                                 }, function(e){
                                     swal.close();
-                                    //template_element_01_clone.remove();
-                                    $(("#" + temp_id_01)).remove();
-                                    //window.location.reload(false);
+                                    window.location.reload(false);
                                 });
                             });
                             requestObject.fail(function(){
@@ -670,9 +666,7 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                                     }
                                 }, function(e){
                                     swal.close();
-                                    //template_element_01_clone.remove();
-                                    $(("#" + temp_id_01)).remove();
-                                    //window.location.reload(false);
+                                    window.location.reload(false);
                                 });
                             });
                             requestObject.fail(function(){
