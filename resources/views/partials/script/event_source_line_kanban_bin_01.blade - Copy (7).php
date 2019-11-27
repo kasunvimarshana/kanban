@@ -36,671 +36,6 @@ $(function(){
     var time_wait_01 = 10;
     var status_id_array = new Array("1", "2", "3");
     
-    function doProcessData01(data){
-/* ----- */
-//console.log(data);
-if( (data == void(0)) ){
-    /*
-    console.log("error");
-    return false;
-    */
-}
-                        /* *** */
-/* *** */
-var template_element_01 = $( template_element_id_01 );
-var template_element_02 = $( template_element_id_02 );
-var template_element_03 = $( template_element_id_03 );
-var template_element_04 = $( template_element_id_04 );
-var template_element_container_01 = $( template_element_container_id_01 );
-var template_element_container_02 = $( template_element_container_id_02 );
-var template_element_01_clone = template_element_01.contents().clone( true );
-var template_element_02_clone = template_element_02.contents().clone( true );
-var template_element_03_clone = template_element_03.contents().clone( true );
-var template_element_04_clone = template_element_04.contents().clone( true );
-var line_kanban_bin_object_array = new Array();
-var line_kanban_bin_requests = new Array();
-/* *** */
-/*
-$( "div" ).detach();
-$( "div" ).remove( ".class" );
-$( "div" ).empty();
-*/
-template_element_container_01.empty();
-template_element_container_02.empty();
-if( (data.hasOwnProperty("line_kanban_bin_object_array")) && (data.line_kanban_bin_object_array != void(0)) ){
-    line_kanban_bin_object_array = data.line_kanban_bin_object_array;
-}
-if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_object_array)) ){
-    $.each(line_kanban_bin_object_array, function(index, value){
-        //console.log( index );
-        //console.log( value );
-        var temp_data_01 = value;
-        var temp_id_01 = (id_prefix + temp_data_01.id);
-        template_element_01_clone = template_element_01.contents().clone( true );
-        template_element_01_clone.attr("id", temp_id_01);
-        template_element_01_clone.data("id", temp_id_01);
-        template_element_01_clone.removeClass(id_prefix).addClass(id_prefix);
-
-        var button_id_01_element = template_element_01_clone.find("#button_id_01");
-        var button_id_01_element_id = button_id_01_element.attr("id");
-        button_id_01_element_id = (button_id_01_element_id + temp_id_01);
-        button_id_01_element.attr("id", button_id_01_element_id);
-        button_id_01_element.data("id", button_id_01_element_id);
-        button_id_01_element.attr("disabled", true);
-        button_id_01_element.removeClass("d-none").addClass("d-none");
-
-        var button_id_02_element = template_element_01_clone.find("#button_id_02");
-        var button_id_02_element_id = button_id_02_element.attr("id");
-        button_id_02_element_id = (button_id_02_element_id + temp_id_01);
-        button_id_02_element.attr("id", button_id_02_element_id);
-        button_id_02_element.data("id", button_id_02_element_id);
-        button_id_02_element.attr("disabled", true);
-        button_id_02_element.removeClass("d-none").addClass("d-none");
-
-        var button_id_03_element = template_element_01_clone.find("#button_id_03");
-        var button_id_03_element_id = button_id_03_element.attr("id");
-        button_id_03_element_id = (button_id_03_element_id + temp_id_01);
-        button_id_03_element.attr("id", button_id_03_element_id);
-        button_id_03_element.data("id", button_id_03_element_id);
-        button_id_03_element.attr("disabled", true);
-        button_id_03_element.removeClass("d-none").addClass("d-none");
-
-        var card_id_01_element = template_element_01_clone.find("#card_id_01");
-        var card_id_01_element_id = card_id_01_element.attr("id");
-        card_id_01_element_id = (card_id_01_element_id + temp_id_01);
-        card_id_01_element.attr("id", card_id_01_element_id);
-        card_id_01_element.data("id", card_id_01_element_id);
-
-        var card_id_02_element = template_element_01_clone.find("#card_id_02");
-        var card_id_02_element_id = card_id_02_element.attr("id");
-        card_id_02_element_id = (card_id_02_element_id + temp_id_01);
-        card_id_02_element.attr("id", card_id_02_element_id);
-        card_id_02_element.data("id", card_id_02_element_id);
-        card_id_02_element.removeClass().addClass("small-box bg-success p-0 m-0 border-0 rounded-1");
-
-        var line_id_element = template_element_01_clone.find("#line_id");
-        var line_id_element_id  = line_id_element.attr("id");
-        line_id_element_id = (line_id_element_id + temp_id_01);
-        line_id_element.attr("id", line_id_element_id);
-        line_id_element.data("id", line_id_element_id);
-        line_id_element.text( temp_data_01.line_id );
-
-        var bin_id_element = template_element_01_clone.find("#bin_id");
-        var bin_id_element_id = bin_id_element.attr("id");
-        bin_id_element_id = (bin_id_element_id + temp_id_01);
-        bin_id_element.attr("id", bin_id_element_id);
-        bin_id_element.data("id", bin_id_element_id);
-        bin_id_element.text( temp_data_01.display_name );
-
-        var collapse_id_element = template_element_01_clone.find("#collapse_id");
-        var collapse_id_element_id = collapse_id_element.attr("id");
-        collapse_id_element_id = (collapse_id_element_id + temp_id_01);
-        collapse_id_element.attr("id", collapse_id_element_id);
-        collapse_id_element.data("id", collapse_id_element_id);
-
-        var button_id_collapse_01_element = template_element_01_clone.find("#button_id_collapse_01");
-        var button_id_collapse_01_element_id = button_id_collapse_01_element.attr("id");
-        button_id_collapse_01_element_id = (button_id_collapse_01_element_id + temp_id_01);
-        button_id_collapse_01_element.attr("id", button_id_collapse_01_element_id);
-        button_id_collapse_01_element.data("id", button_id_collapse_01_element_id);
-        //button_id_collapse_01_element.attr("aria-expanded", "false");
-        //button_id_collapse_01_element.attr("data-toggle", "collapse");
-        //button_id_collapse_01_element.attr("data-target", ("#" + collapse_id_element.attr("id")));
-        ////button_id_collapse_01_element.attr("data-target", ("#" + collapse_id_element_id));
-        //button_id_collapse_01_element.attr("aria-controls", (collapse_id_element.attr("id")));
-        ////button_id_collapse_01_element.attr("aria-controls", (collapse_id_element_id));
-        /*
-        button_id_collapse_01_element.click();
-        button_id_collapse_01_element.trigger("click");
-        */
-
-        var time_request_element = template_element_01_clone.find("#time_request");
-        var time_request_element_id = time_request_element.attr("id");
-        time_request_element_id = (time_request_element_id + temp_id_01);
-        time_request_element.attr("id", time_request_element_id);
-        time_request_element.data("id", time_request_element_id);
-        time_request_element.closest('li').removeClass("d-none").addClass("d-none");
-
-        var time_response_element = template_element_01_clone.find("#time_response");
-        var time_response_element_id = time_response_element.attr("id");
-        time_request_element_id = (time_response_element_id + temp_id_01);
-        time_response_element.attr("id", time_response_element_id);
-        time_response_element.data("id", time_response_element_id);
-        time_response_element.closest('li').removeClass("d-none").addClass("d-none");
-
-        var quantity_request_element = template_element_01_clone.find("#quantity_request");
-        var quantity_request_element_id = quantity_request_element.attr("id");
-        quantity_request_element_id = (quantity_request_element_id + temp_id_01);
-        quantity_request_element.attr("id", quantity_request_element_id);
-        quantity_request_element.data("id", quantity_request_element_id);
-        quantity_request_element.closest('li').removeClass("d-none").addClass("d-none");
-
-        var quantity_response_element = template_element_01_clone.find("#quantity_response");
-        var quantity_response_element_id = quantity_response_element.attr("id");
-        quantity_response_element_id = (quantity_response_element_id + temp_id_01);
-        quantity_response_element.attr("id", quantity_response_element_id);
-        quantity_response_element.data("id", quantity_response_element_id);
-        quantity_response_element.closest('li').removeClass("d-none").addClass("d-none");
-
-        var countdown_id_01_element = template_element_01_clone.find("#countdown_id_01");
-        var countdown_id_01_element_id = countdown_id_01_element.attr("id");
-        countdown_id_01_element_id = (countdown_id_01_element_id + temp_id_01);
-        countdown_id_01_element.attr("id", countdown_id_01_element_id);
-        countdown_id_01_element.data("id", countdown_id_01_element_id);
-        countdown_id_01_element.closest('li').removeClass("d-none").addClass("d-none");
-
-        var countdown_id_02_element = template_element_01_clone.find("#countdown_id_02");
-        var countdown_id_02_element_id = countdown_id_02_element.attr("id");
-        countdown_id_02_element_id = (countdown_id_02_element_id + temp_id_01);
-        countdown_id_02_element.attr("id", quantity_response_element_id);
-        countdown_id_02_element.data("id", quantity_response_element_id);
-
-        line_kanban_bin_requests = new Array();
-        if( (temp_data_01.hasOwnProperty("line_kanban_bin_requests")) && (temp_data_01.line_kanban_bin_requests != void(0)) ){
-            line_kanban_bin_requests = temp_data_01.line_kanban_bin_requests;
-        }
-        if( (line_kanban_bin_requests != void(0)) && (Array.isArray(line_kanban_bin_requests)) && (line_kanban_bin_requests.length >= 1) ){
-            //var date = moment(data.date, 'YYYY-MM-DD HH:mm:ss').toDate();
-            //var today = moment().format('YYYY-MM-DD');
-            //var date = moment(data.date, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
-            //var date = moment(data.date, 'YYYY-MM-DD HH:mm:ss', true).format('YYYY-MM-DD');
-            //var date = moment(data.date, 'YYYY-MM-DD HH:mm:ss', false).format('YYYY-MM-DD');
-            //var date = moment(data.date, ['DDMMMMY', 'MMMMDDY']).format();
-            /*           
-            var a = moment();
-            var b = moment();
-            a.diff(b, 'years');
-            a.diff(b, 'years', true);
-            */
-            var temp_data_02 = line_kanban_bin_requests.shift();
-
-            var time_request = temp_data_02.time_request;
-            if( (time_request != void(0)) ){
-                time_request = moment(time_request, 'YYYY-MM-DD HH:mm:ss', false).format('YYYY-MM-DD');
-                time_request_element.text( time_request );
-            }
-
-            var time_response = temp_data_02.time_response;
-            if( (time_request != void(0)) ){
-                time_response = moment(time_response, 'YYYY-MM-DD HH:mm:ss', false).format('YYYY-MM-DD');
-                time_response_element.text( time_response );
-            }
-
-            quantity_request_element.text( temp_data_02.quantity_request );
-
-            quantity_response_element.text( temp_data_02.quantity_response );
-
-            /*
-            var inline_script_01_text = null;
-            inline_script_01_text = "(function(){";
-            //inline_script_01_text += "console.log('Test');";
-            //inline_script_01_text += "setTimeout(function(){ alert('Test'); }, 3000);";
-            inline_script_01_text += "})();";
-            var script_element_01 = document.createElement("script");
-            var inline_script_01 = document.createTextNode( inline_script_01_text );
-            script_element_01.appendChild(inline_script_01);
-            template_element_01_clone.append(script_element_01);
-            */
-
-            /* *** */
-            button_id_02_element.off("click").on("click", function(event_parameter){
-                event_parameter.preventDefault();
-                //event_parameter.stopPropagation();
-                button_id_02_element.attr("disabled", true);
-                var temp_template_element_03_clone = template_element_03_clone;
-                //var temp_template_element_03_clone_child = temp_template_element_03_clone.children().get();
-                var temp_template_element_03_clone_child = temp_template_element_03_clone.children().first();
-                var temp_template_element_03_clone_child_id = ('temp_template_element_03_clone_child_id' + temp_id_01);
-                temp_template_element_03_clone_child.find('form').attr('id', temp_template_element_03_clone_child_id);
-
-                var quantity_element = temp_template_element_03_clone.find("#quantity");
-                var quantity_element_id = quantity_element.attr("id");
-                quantity_element_id = (quantity_element_id + temp_id_01);
-                quantity_element.attr("id", quantity_element_id);
-                quantity_element.data("id", quantity_element_id);
-                quantity_element.text( temp_data_02.quantity_response );
-
-                var temp_title = "";
-                temp_title += "<p class='p-0 m-0 text-xs'>";
-                temp_title += "<span> Line : </span><span> ["+ temp_data_01.line_id +"] </span>";
-                temp_title += "</p>";
-                temp_title += "<p class='p-0 m-0 text-xs'>";
-                temp_title += "<span> Bin : </span><span> ["+ temp_data_01.display_name +"] </span>";
-                temp_title += "</p>";
-
-                var bootboxObj = bootbox.confirm({
-                    size: "small",
-                    title: temp_title,
-                    message: temp_template_element_03_clone_child.html(),
-                    onEscape: true,
-                    show: true,
-                    scrollable: true,
-                    buttons: {
-                        confirm: {
-                            label: 'Yes',
-                            className: 'btn-success',
-                            callback: function(){
-                                //return false;
-                            }
-                        },
-                        cancel: {
-                            label: 'No',
-                            className: 'btn-danger btn-primary',
-                            callback: function(){
-                                return false;
-                            }
-                        }
-                    },
-                    callback: function (result) {
-                        //console.log(result);
-                        var formObj = $('#' + temp_template_element_03_clone_child_id);
-                        formObj.validator('validate');
-                        var _token = formObj.find("[name='_token']");
-                        var _token_value = _token.val();
-                        /*
-                        var quantity = formObj.find('#quantity');
-                        var quantity_value = quantity.val();
-                        if( (result === true) ){
-                            if( (quantity_value == void(0)) || (quantity_value < 0) ){
-                               return false;
-                            }
-                        }
-                        */
-                        if( (result === true) ){
-                            var url = "{!! route('lineKanbanBinRequest.closeLineKanbanRequest02', ['#argument_01']) !!}";
-                            url = url.replace("#argument_01", temp_data_02.id);
-                            //$( location ).attr("href", url);
-                            var formdata = new Object();
-                            formdata._token = _token_value;
-                            //formdata.quantity =  quantity_value;
-                            formdata.line_kanban_bin_id =  temp_data_01.id;
-                            formdata.line_kanban_bin_request_id =  temp_data_02.id;
-
-                            var requestObject = $.ajax({
-                                url: url,
-                                cache: false,
-                                //quietMillis: 10,
-                                //dataType: 'json',
-                                //delay: 10,
-                                type: "POST",
-                                //method: "POST",
-                                //crossDomain: true,
-                                //timeout: 0,
-                                //context: document.body,
-                                //encode: true,
-                                //processData: false,
-                                //contentType: false,
-                                /*data : {
-                                    //'key': 'value',
-                                },*/
-                                data: formdata,
-                                beforeSend: function( xhr ) {
-                                    //xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
-                                },
-                                statusCode: {
-                                    404: function() {
-                                        //console.log( "page not found" );
-                                    }
-                                }
-                            }); 
-
-                            requestObject.done(function(data){
-                                var swalObject = swal({
-                                    'title': data.title,
-                                    'text': data.text,
-                                    'type': data.type,
-                                    'timer': data.timer,
-                                    'showConfirmButton': false,
-                                    'onClose': () => {
-                                        window.location.reload(false);
-                                    }
-                                }, function(e){
-                                    swal.close();
-                                    window.location.reload(false);
-                                });
-                            });
-                            requestObject.fail(function(){
-                                //console.log( "error" );
-                            });
-                            requestObject.always(function(){
-                                //console.log( "finished" );
-                                button_id_02_element.attr("disabled", false);
-                            });
-                        }else{
-                            button_id_02_element.attr("disabled", false);
-                        }
-                    }
-                })
-                    .find('.modal-header').addClass('custom-modal-header')
-                    /*.find('.bootbox-cancel:first').focus()
-                    .find('.bootbox-cancel').attr('autofocus', true)
-                    .on('shown.bs.modal', function(e){
-                        $(this).find(".bootbox-cancel:first").focus();
-                    })*/
-                    .init(function(e){
-                        $(this).find(".bootbox-cancel").focus();
-                    });
-                button_id_02_element.attr("disabled", false);
-            });
-            /* *** */
-            /* *** */
-            button_id_03_element.off("click").on("click", function(event_parameter){
-                event_parameter.preventDefault();
-                //event_parameter.stopPropagation();
-                button_id_03_element.attr("disabled", true);
-                var temp_template_element_04_clone = template_element_04_clone;
-                //var temp_template_element_04_clone_child = temp_template_element_04_clone.children().get();
-                var temp_template_element_04_clone_child = temp_template_element_04_clone.children().first();
-                var temp_template_element_04_clone_child_id = ('temp_template_element_04_clone_child_id' + temp_id_01);
-                temp_template_element_04_clone_child.find('form').attr('id', temp_template_element_04_clone_child_id);
-
-                var temp_title = "";
-                temp_title += "<p class='p-0 m-0 text-xs'>";
-                temp_title += "<span> Line : </span><span> ["+ temp_data_01.line_id +"] </span>";
-                temp_title += "</p>";
-                temp_title += "<p class='p-0 m-0 text-xs'>";
-                temp_title += "<span> Bin : </span><span> ["+ temp_data_01.display_name +"] </span>";
-                temp_title += "</p>";
-
-                var bootboxObj = bootbox.confirm({
-                    size: "small",
-                    title: temp_title,
-                    message: temp_template_element_04_clone_child.html(),
-                    onEscape: true,
-                    show: true,
-                    scrollable: true,
-                    buttons: {
-                        confirm: {
-                            label: 'Yes',
-                            className: 'btn-success',
-                            callback: function(){
-                                //return false;
-                            }
-                        },
-                        cancel: {
-                            label: 'No',
-                            className: 'btn-danger btn-primary',
-                            callback: function(){
-                                return false;
-                            }
-                        }
-                    },
-                    callback: function (result) {
-                        //console.log(result);
-                        var formObj = $('#' + temp_template_element_04_clone_child_id);
-                        formObj.validator('validate');
-                        var _token = formObj.find("[name='_token']");
-                        var _token_value = _token.val();
-                        var quantity = formObj.find('#quantity');
-                        var quantity_value = quantity.val();
-
-                        if( (result === true) ){
-                            if( (quantity_value == void(0)) || (quantity_value < 0) ){
-                               return false;
-                            }
-                        }
-
-                        if( (result === true) ){
-                            var url = "{!! route('lineKanbanBinRequest.closeLineKanbanRequest01', ['#argument_01']) !!}";
-                            url = url.replace("#argument_01", temp_data_02.id);
-                            //$( location ).attr("href", url);
-                            var formdata = new Object();
-                            formdata._token = _token_value;
-                            formdata.quantity_response =  quantity_value;
-                            formdata.line_kanban_bin_id =  temp_data_01.id;
-                            formdata.line_kanban_bin_request_id =  temp_data_02.id;
-
-                            var requestObject = $.ajax({
-                                url: url,
-                                cache: false,
-                                //quietMillis: 10,
-                                //dataType: 'json',
-                                //delay: 10,
-                                type: "POST",
-                                //method: "POST",
-                                //crossDomain: true,
-                                //timeout: 0,
-                                //context: document.body,
-                                //encode: true,
-                                //processData: false,
-                                //contentType: false,
-                                /*data : {
-                                    //'key': 'value',
-                                },*/
-                                data: formdata,
-                                beforeSend: function( xhr ) {
-                                    //xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
-                                },
-                                statusCode: {
-                                    404: function() {
-                                        //console.log( "page not found" );
-                                    }
-                                }
-                            }); 
-
-                            requestObject.done(function(data){
-                                var swalObject = swal({
-                                    'title': data.title,
-                                    'text': data.text,
-                                    'type': data.type,
-                                    'timer': data.timer,
-                                    'showConfirmButton': false,
-                                    'onClose': () => {
-                                        window.location.reload(false);
-                                    }
-                                }, function(e){
-                                    swal.close();
-                                    window.location.reload(false);
-                                });
-                            });
-                            requestObject.fail(function(){
-                                //console.log( "error" );
-                            });
-                            requestObject.always(function(){
-                                //console.log( "finished" );
-                                button_id_03_element.attr("disabled", false);
-                            });
-                        }else{
-                            button_id_03_element.attr("disabled", false);
-                        }
-                    }
-                })
-                    .find('.modal-header').addClass('custom-modal-header')
-                    /*.find('.bootbox-cancel:first').focus()
-                    .find('.bootbox-cancel').attr('autofocus', true)
-                    .on('shown.bs.modal', function(e){
-                        $(this).find(".bootbox-cancel:first").focus();
-                    })*/
-                    .init(function(e){
-                        $(this).find(".bootbox-cancel").focus();
-                    });
-                button_id_03_element.attr("disabled", false);
-            });
-            /* *** */
-
-            var temp_time_01 = null;
-            var temp_time_02 = temp_data_02.time_request;
-            var temp_countdown_value = 0;
-            if( (temp_time_02 != void(0)) ){
-                temp_time_01 = moment();
-                temp_time_02 = moment(temp_time_02, 'YYYY-MM-DD HH:mm:ss', false);
-                temp_time_02 = temp_time_02.clone().add(time_wait_01, 'minutes');
-                temp_countdown_value = temp_time_02.diff(temp_time_01, 'minutes', false);
-                if( (temp_countdown_value <= 0) ){
-                   temp_countdown_value = 0;
-                }
-            }
-
-            if( ((status_id_array[0].localeCompare(temp_data_02.status_id)) == 0) ){
-                //open
-                button_id_03_element.attr("disabled", false);
-                button_id_03_element.removeClass("d-none");
-                if( (temp_countdown_value != void(0)) && (temp_countdown_value <= 0) ){
-                    card_id_02_element.removeClass().addClass("small-box bg-danger p-0 m-0 border-0 rounded-1");
-                }else{
-                    card_id_02_element.removeClass().addClass("small-box bg-animation-01 p-0 m-0 border-0 rounded-1");
-                }
-            }else if( ((status_id_array[1].localeCompare(temp_data_02.status_id)) == 0) ){
-                //inprogress
-                card_id_02_element.removeClass().addClass("small-box bg-warning p-0 m-0 border-0 rounded-1");
-                button_id_02_element.attr("disabled", false);
-                button_id_02_element.removeClass("d-none");
-            }else if( ((status_id_array[2].localeCompare(temp_data_02.status_id)) == 0) ){
-                //close
-                card_id_02_element.removeClass().addClass("small-box bg-success p-0 m-0 border-0 rounded-1");
-            }else{
-                //card_id_02_element.removeClass().addClass("small-box bg-success p-0 m-0 border-0 rounded-1");
-                card_id_02_element.removeClass().addClass("small-box bg-animation-01 p-0 m-0 border-0 rounded-1");
-            }
-
-            countdown_id_01_element.text( temp_countdown_value );
-
-            countdown_id_02_element.text( temp_countdown_value );
-        }else{
-            //console.log("void(0)");
-            button_id_01_element.attr("disabled", false);
-            button_id_01_element.removeClass("d-none");
-
-            button_id_01_element.off("click").on("click", function(event_parameter){
-                event_parameter.preventDefault();
-                //event_parameter.stopPropagation();
-                button_id_01_element.attr("disabled", true);
-                var temp_template_element_02_clone = template_element_02_clone;
-                //var temp_template_element_02_clone_child = temp_template_element_02_clone.children().get();
-                var temp_template_element_02_clone_child = temp_template_element_02_clone.children().first();
-                var temp_template_element_02_clone_child_id = ('temp_template_element_02_clone_child_id' + temp_id_01);
-                temp_template_element_02_clone_child.find('form').attr('id', temp_template_element_02_clone_child_id);
-
-                var temp_title = "";
-                temp_title += "<p class='p-0 m-0 text-xs'>";
-                temp_title += "<span> Line : </span><span> ["+ temp_data_01.line_id +"] </span>";
-                temp_title += "</p>";
-                temp_title += "<p class='p-0 m-0 text-xs'>";
-                temp_title += "<span> Bin : </span><span> ["+ temp_data_01.display_name +"] </span>";
-                temp_title += "</p>";
-
-                var bootboxObj = bootbox.confirm({
-                    size: "small",
-                    title: temp_title,
-                    message: temp_template_element_02_clone_child.html(),
-                    onEscape: true,
-                    show: true,
-                    scrollable: true,
-                    buttons: {
-                        confirm: {
-                            label: 'Yes',
-                            className: 'btn-success',
-                            callback: function(){
-                                //return false;
-                            }
-                        },
-                        cancel: {
-                            label: 'No',
-                            className: 'btn-danger btn-primary',
-                            callback: function(){
-                                return false;
-                            }
-                        }
-                    },
-                    callback: function (result) {
-                        //console.log(result);
-                        var formObj = $('#' + temp_template_element_02_clone_child_id);
-                        formObj.validator('validate');
-                        var _token = formObj.find("[name='_token']");
-                        var _token_value = _token.val();
-                        var quantity = formObj.find('#quantity');
-                        var quantity_value = quantity.val();
-
-                        if( (result === true) ){
-                            if( (quantity_value == void(0)) || (quantity_value < 0) ){
-                               return false;
-                            }
-                        }
-
-                        if( (result === true) ){
-                            var url = "{!! route('lineKanbanBinRequest.store', ['#argument_01']) !!}";
-                            url = url.replace("#argument_01", temp_data_01.id);
-                            //$( location ).attr("href", url);
-                            var formdata = new Object();
-                            formdata._token = _token_value;
-                            formdata.quantity_request =  quantity_value;
-                            formdata.line_kanban_bin_id =  temp_data_01.id;
-
-                            var requestObject = $.ajax({
-                                url: url,
-                                cache: false,
-                                //quietMillis: 10,
-                                //dataType: 'json',
-                                //delay: 10,
-                                type: "POST",
-                                //method: "POST",
-                                //crossDomain: true,
-                                //timeout: 0,
-                                //context: document.body,
-                                //encode: true,
-                                //processData: false,
-                                //contentType: false,
-                                /*data : {
-                                    //'key': 'value',
-                                },*/
-                                data: formdata,
-                                beforeSend: function( xhr ) {
-                                    //xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
-                                },
-                                statusCode: {
-                                    404: function() {
-                                        //console.log( "page not found" );
-                                    }
-                                }
-                            }); 
-
-                            requestObject.done(function(data){
-                                var swalObject = swal({
-                                    'title': data.title,
-                                    'text': data.text,
-                                    'type': data.type,
-                                    'timer': data.timer,
-                                    'showConfirmButton': false,
-                                    'onClose': () => {
-                                        window.location.reload(false);
-                                    }
-                                }, function(e){
-                                    swal.close();
-                                    window.location.reload(false);
-                                });
-                            });
-                            requestObject.fail(function(){
-                                //console.log( "error" );
-                            });
-                            requestObject.always(function(){
-                                //console.log( "finished" );
-                                button_id_01_element.attr("disabled", false);
-                            });
-                        }else{
-                            button_id_01_element.attr("disabled", false);
-                        }
-                    }
-                })
-                    .find('.modal-header').addClass('custom-modal-header')
-                    /*.find('.bootbox-cancel:first').focus()
-                    .find('.bootbox-cancel').attr('autofocus', true)
-                    .on('shown.bs.modal', function(e){
-                        $(this).find(".bootbox-cancel:first").focus();
-                    })*/
-                    .init(function(e){
-                        $(this).find(".bootbox-cancel").focus();
-                    });
-                button_id_01_element.attr("disabled", false);
-            });
-        }
-
-        template_element_container_01.append( template_element_01_clone );
-    });
-}
-                        /* *** */
-/* ----- */
-    }
-    
     function isFunction(functionToCheck) {
         return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
     }
@@ -803,7 +138,642 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                     if( ((is_dirty == void(0)) || (is_dirty == false)) ){
                         //console.log(is_dirty);
                         /* *** */
-                        doProcessData01(data);
+/* *** */
+var template_element_01 = $( template_element_id_01 );
+var template_element_02 = $( template_element_id_02 );
+var template_element_03 = $( template_element_id_03 );
+var template_element_04 = $( template_element_id_04 );
+var template_element_container_01 = $( template_element_container_id_01 );
+var template_element_container_02 = $( template_element_container_id_02 );
+var template_element_01_clone = template_element_01.contents().clone( true );
+var template_element_02_clone = template_element_02.contents().clone( true );
+var template_element_03_clone = template_element_03.contents().clone( true );
+var template_element_04_clone = template_element_04.contents().clone( true );
+var line_kanban_bin_object_array = new Array();
+var line_kanban_bin_requests = new Array();
+/* *** */
+/*
+$( "div" ).detach();
+$( "div" ).remove( ".class" );
+$( "div" ).empty();
+*/
+template_element_container_01.empty();
+template_element_container_02.empty();
+if( (data.hasOwnProperty("line_kanban_bin_object_array")) && (data.line_kanban_bin_object_array != void(0)) ){
+    line_kanban_bin_object_array = data.line_kanban_bin_object_array;
+}
+if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_object_array)) ){
+    $.each(line_kanban_bin_object_array, function(index, value){
+        //console.log( index );
+        //console.log( value );
+        var temp_data_01 = value;
+        var temp_id_01 = (id_prefix + temp_data_01.id);
+        template_element_01_clone = template_element_01.contents().clone( true );
+        template_element_01_clone.attr("id", temp_id_01);
+        template_element_01_clone.data("id", temp_id_01);
+        template_element_01_clone.removeClass(id_prefix).addClass(id_prefix);
+        
+        var button_id_01_element = template_element_01_clone.find("#button_id_01");
+        var button_id_01_element_id = button_id_01_element.attr("id");
+        button_id_01_element_id = (button_id_01_element_id + temp_id_01);
+        button_id_01_element.attr("id", button_id_01_element_id);
+        button_id_01_element.data("id", button_id_01_element_id);
+        button_id_01_element.attr("disabled", true);
+        button_id_01_element.removeClass("d-none").addClass("d-none");
+        
+        var button_id_02_element = template_element_01_clone.find("#button_id_02");
+        var button_id_02_element_id = button_id_02_element.attr("id");
+        button_id_02_element_id = (button_id_02_element_id + temp_id_01);
+        button_id_02_element.attr("id", button_id_02_element_id);
+        button_id_02_element.data("id", button_id_02_element_id);
+        button_id_02_element.attr("disabled", true);
+        button_id_02_element.removeClass("d-none").addClass("d-none");
+        
+        var button_id_03_element = template_element_01_clone.find("#button_id_03");
+        var button_id_03_element_id = button_id_03_element.attr("id");
+        button_id_03_element_id = (button_id_03_element_id + temp_id_01);
+        button_id_03_element.attr("id", button_id_03_element_id);
+        button_id_03_element.data("id", button_id_03_element_id);
+        button_id_03_element.attr("disabled", true);
+        button_id_03_element.removeClass("d-none").addClass("d-none");
+        
+        var card_id_01_element = template_element_01_clone.find("#card_id_01");
+        var card_id_01_element_id = card_id_01_element.attr("id");
+        card_id_01_element_id = (card_id_01_element_id + temp_id_01);
+        card_id_01_element.attr("id", card_id_01_element_id);
+        card_id_01_element.data("id", card_id_01_element_id);
+        
+        var card_id_02_element = template_element_01_clone.find("#card_id_02");
+        var card_id_02_element_id = card_id_02_element.attr("id");
+        card_id_02_element_id = (card_id_02_element_id + temp_id_01);
+        card_id_02_element.attr("id", card_id_02_element_id);
+        card_id_02_element.data("id", card_id_02_element_id);
+        card_id_02_element.removeClass().addClass("small-box bg-success p-0 m-0 border-0 rounded-1");
+        
+        var line_id_element = template_element_01_clone.find("#line_id");
+        var line_id_element_id  = line_id_element.attr("id");
+        line_id_element_id = (line_id_element_id + temp_id_01);
+        line_id_element.attr("id", line_id_element_id);
+        line_id_element.data("id", line_id_element_id);
+        line_id_element.text( temp_data_01.line_id );
+        
+        var bin_id_element = template_element_01_clone.find("#bin_id");
+        var bin_id_element_id = bin_id_element.attr("id");
+        bin_id_element_id = (bin_id_element_id + temp_id_01);
+        bin_id_element.attr("id", bin_id_element_id);
+        bin_id_element.data("id", bin_id_element_id);
+        bin_id_element.text( temp_data_01.display_name );
+        
+        var collapse_id_element = template_element_01_clone.find("#collapse_id");
+        var collapse_id_element_id = collapse_id_element.attr("id");
+        collapse_id_element_id = (collapse_id_element_id + temp_id_01);
+        collapse_id_element.attr("id", collapse_id_element_id);
+        collapse_id_element.data("id", collapse_id_element_id);
+        
+        var button_id_collapse_01_element = template_element_01_clone.find("#button_id_collapse_01");
+        var button_id_collapse_01_element_id = button_id_collapse_01_element.attr("id");
+        button_id_collapse_01_element_id = (button_id_collapse_01_element_id + temp_id_01);
+        button_id_collapse_01_element.attr("id", button_id_collapse_01_element_id);
+        button_id_collapse_01_element.data("id", button_id_collapse_01_element_id);
+        //button_id_collapse_01_element.attr("aria-expanded", "false");
+        //button_id_collapse_01_element.attr("data-toggle", "collapse");
+        //button_id_collapse_01_element.attr("data-target", ("#" + collapse_id_element.attr("id")));
+        ////button_id_collapse_01_element.attr("data-target", ("#" + collapse_id_element_id));
+        //button_id_collapse_01_element.attr("aria-controls", (collapse_id_element.attr("id")));
+        ////button_id_collapse_01_element.attr("aria-controls", (collapse_id_element_id));
+        /*
+        button_id_collapse_01_element.click();
+        button_id_collapse_01_element.trigger("click");
+        */
+        
+        var time_request_element = template_element_01_clone.find("#time_request");
+        var time_request_element_id = time_request_element.attr("id");
+        time_request_element_id = (time_request_element_id + temp_id_01);
+        time_request_element.attr("id", time_request_element_id);
+        time_request_element.data("id", time_request_element_id);
+        time_request_element.closest('li').removeClass("d-none").addClass("d-none");
+        
+        var time_response_element = template_element_01_clone.find("#time_response");
+        var time_response_element_id = time_response_element.attr("id");
+        time_request_element_id = (time_response_element_id + temp_id_01);
+        time_response_element.attr("id", time_response_element_id);
+        time_response_element.data("id", time_response_element_id);
+        time_response_element.closest('li').removeClass("d-none").addClass("d-none");
+        
+        var quantity_request_element = template_element_01_clone.find("#quantity_request");
+        var quantity_request_element_id = quantity_request_element.attr("id");
+        quantity_request_element_id = (quantity_request_element_id + temp_id_01);
+        quantity_request_element.attr("id", quantity_request_element_id);
+        quantity_request_element.data("id", quantity_request_element_id);
+        quantity_request_element.closest('li').removeClass("d-none").addClass("d-none");
+        
+        var quantity_response_element = template_element_01_clone.find("#quantity_response");
+        var quantity_response_element_id = quantity_response_element.attr("id");
+        quantity_response_element_id = (quantity_response_element_id + temp_id_01);
+        quantity_response_element.attr("id", quantity_response_element_id);
+        quantity_response_element.data("id", quantity_response_element_id);
+        quantity_response_element.closest('li').removeClass("d-none").addClass("d-none");
+        
+        var countdown_id_01_element = template_element_01_clone.find("#countdown_id_01");
+        var countdown_id_01_element_id = countdown_id_01_element.attr("id");
+        countdown_id_01_element_id = (countdown_id_01_element_id + temp_id_01);
+        countdown_id_01_element.attr("id", countdown_id_01_element_id);
+        countdown_id_01_element.data("id", countdown_id_01_element_id);
+        countdown_id_01_element.closest('li').removeClass("d-none").addClass("d-none");
+        
+        var countdown_id_02_element = template_element_01_clone.find("#countdown_id_02");
+        var countdown_id_02_element_id = countdown_id_02_element.attr("id");
+        countdown_id_02_element_id = (countdown_id_02_element_id + temp_id_01);
+        countdown_id_02_element.attr("id", quantity_response_element_id);
+        countdown_id_02_element.data("id", quantity_response_element_id);
+        
+        line_kanban_bin_requests = new Array();
+        if( (temp_data_01.hasOwnProperty("line_kanban_bin_requests")) && (temp_data_01.line_kanban_bin_requests != void(0)) ){
+            line_kanban_bin_requests = temp_data_01.line_kanban_bin_requests;
+        }
+        if( (line_kanban_bin_requests != void(0)) && (Array.isArray(line_kanban_bin_requests)) && (line_kanban_bin_requests.length >= 1) ){
+            //var date = moment(data.date, 'YYYY-MM-DD HH:mm:ss').toDate();
+            //var today = moment().format('YYYY-MM-DD');
+            //var date = moment(data.date, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
+            //var date = moment(data.date, 'YYYY-MM-DD HH:mm:ss', true).format('YYYY-MM-DD');
+            //var date = moment(data.date, 'YYYY-MM-DD HH:mm:ss', false).format('YYYY-MM-DD');
+            //var date = moment(data.date, ['DDMMMMY', 'MMMMDDY']).format();
+            /*           
+            var a = moment();
+            var b = moment();
+            a.diff(b, 'years');
+            a.diff(b, 'years', true);
+            */
+            var temp_data_02 = line_kanban_bin_requests.shift();
+            
+            var time_request = temp_data_02.time_request;
+            if( (time_request != void(0)) ){
+                time_request = moment(time_request, 'YYYY-MM-DD HH:mm:ss', false).format('YYYY-MM-DD');
+                time_request_element.text( time_request );
+            }
+            
+            var time_response = temp_data_02.time_response;
+            if( (time_request != void(0)) ){
+                time_response = moment(time_response, 'YYYY-MM-DD HH:mm:ss', false).format('YYYY-MM-DD');
+                time_response_element.text( time_response );
+            }
+            
+            quantity_request_element.text( temp_data_02.quantity_request );
+            
+            quantity_response_element.text( temp_data_02.quantity_response );
+            
+            /*
+            var inline_script_01_text = null;
+            inline_script_01_text = "(function(){";
+            //inline_script_01_text += "console.log('Test');";
+            //inline_script_01_text += "setTimeout(function(){ alert('Test'); }, 3000);";
+            inline_script_01_text += "})();";
+            var script_element_01 = document.createElement("script");
+            var inline_script_01 = document.createTextNode( inline_script_01_text );
+            script_element_01.appendChild(inline_script_01);
+            template_element_01_clone.append(script_element_01);
+            */
+            
+            /* *** */
+            button_id_02_element.off("click").on("click", function(event){
+                event.preventDefault();
+                //event.stopPropagation();
+                button_id_02_element.attr("disabled", true);
+                var temp_template_element_03_clone = template_element_03_clone;
+                //var temp_template_element_03_clone_child = temp_template_element_03_clone.children().get();
+                var temp_template_element_03_clone_child = temp_template_element_03_clone.children().first();
+                var temp_template_element_03_clone_child_id = ('temp_template_element_03_clone_child_id' + temp_id_01);
+                temp_template_element_03_clone_child.find('form').attr('id', temp_template_element_03_clone_child_id);
+                
+                var quantity_element = temp_template_element_03_clone.find("#quantity");
+                var quantity_element_id = quantity_element.attr("id");
+                quantity_element_id = (quantity_element_id + temp_id_01);
+                quantity_element.attr("id", quantity_element_id);
+                quantity_element.data("id", quantity_element_id);
+                quantity_element.text( temp_data_02.quantity_response );
+                
+                var temp_title = "";
+                temp_title += "<p class='p-0 m-0 text-xs'>";
+                temp_title += "<span> Line : </span><span> ["+ temp_data_01.line_id +"] </span>";
+                temp_title += "</p>";
+                temp_title += "<p class='p-0 m-0 text-xs'>";
+                temp_title += "<span> Bin : </span><span> ["+ temp_data_01.display_name +"] </span>";
+                temp_title += "</p>";
+                
+                var bootboxObj = bootbox.confirm({
+                    size: "small",
+                    title: temp_title,
+                    message: temp_template_element_03_clone_child.html(),
+                    onEscape: true,
+                    show: true,
+                    scrollable: true,
+                    buttons: {
+                        confirm: {
+                            label: 'Yes',
+                            className: 'btn-success',
+                            callback: function(){
+                                //return false;
+                            }
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-danger btn-primary',
+                            callback: function(){
+                                return false;
+                            }
+                        }
+                    },
+                    callback: function (result) {
+                        //console.log(result);
+                        var formObj = $('#' + temp_template_element_03_clone_child_id);
+                        formObj.validator('validate');
+                        var _token = formObj.find("[name='_token']");
+                        var _token_value = _token.val();
+                        /*
+                        var quantity = formObj.find('#quantity');
+                        var quantity_value = quantity.val();
+                        if( (result === true) ){
+                            if( (quantity_value == void(0)) || (quantity_value < 0) ){
+                               return false;
+                            }
+                        }
+                        */
+                        if( (result === true) ){
+                            var url = "{!! route('lineKanbanBinRequest.closeLineKanbanRequest02', ['#argument_01']) !!}";
+                            url = url.replace("#argument_01", temp_data_02.id);
+                            //$( location ).attr("href", url);
+                            var formdata = new Object();
+                            formdata._token = _token_value;
+                            //formdata.quantity =  quantity_value;
+                            formdata.line_kanban_bin_id =  temp_data_01.id;
+                            formdata.line_kanban_bin_request_id =  temp_data_02.id;
+
+                            var requestObject = $.ajax({
+                                url: url,
+                                cache: false,
+                                //quietMillis: 10,
+                                //dataType: 'json',
+                                //delay: 10,
+                                type: "POST",
+                                //method: "POST",
+                                //crossDomain: true,
+                                //timeout: 0,
+                                //context: document.body,
+                                //encode: true,
+                                //processData: false,
+                                //contentType: false,
+                                /*data : {
+                                    //'key': 'value',
+                                },*/
+                                data: formdata,
+                                beforeSend: function( xhr ) {
+                                    //xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+                                },
+                                statusCode: {
+                                    404: function() {
+                                        //console.log( "page not found" );
+                                    }
+                                }
+                            }); 
+                            
+                            requestObject.done(function(data){
+                                swal({
+                                    'title': data.title,
+                                    'text': data.text,
+                                    'type': data.type,
+                                    'timer': data.timer,
+                                    'showConfirmButton': false
+                                });
+                                //$('#dataTableId').DataTable().ajax.reload( null, false ); // user paging is not reset on reload
+                            });
+                            requestObject.fail(function(){
+                                //console.log( "error" );
+                            });
+                            requestObject.always(function(){
+                                //console.log( "finished" );
+                                button_id_02_element.attr("disabled", false);
+                            });
+                        }else{
+                            button_id_02_element.attr("disabled", false);
+                        }
+                    }
+                })
+                    .find('.modal-header').addClass('custom-modal-header')
+                    /*.find('.bootbox-cancel:first').focus()
+                    .find('.bootbox-cancel').attr('autofocus', true)
+                    .on('shown.bs.modal', function(e){
+                        $(this).find(".bootbox-cancel:first").focus();
+                    })*/
+                    .init(function(e){
+                        $(this).find(".bootbox-cancel").focus();
+                    });
+                button_id_02_element.attr("disabled", false);
+            });
+            /* *** */
+            /* *** */
+            button_id_03_element.off("click").on("click", function(event){
+                event.preventDefault();
+                //event.stopPropagation();
+                button_id_03_element.attr("disabled", true);
+                var temp_template_element_04_clone = template_element_04_clone;
+                //var temp_template_element_04_clone_child = temp_template_element_04_clone.children().get();
+                var temp_template_element_04_clone_child = temp_template_element_04_clone.children().first();
+                var temp_template_element_04_clone_child_id = ('temp_template_element_04_clone_child_id' + temp_id_01);
+                temp_template_element_04_clone_child.find('form').attr('id', temp_template_element_04_clone_child_id);
+                
+                var temp_title = "";
+                temp_title += "<p class='p-0 m-0 text-xs'>";
+                temp_title += "<span> Line : </span><span> ["+ temp_data_01.line_id +"] </span>";
+                temp_title += "</p>";
+                temp_title += "<p class='p-0 m-0 text-xs'>";
+                temp_title += "<span> Bin : </span><span> ["+ temp_data_01.display_name +"] </span>";
+                temp_title += "</p>";
+                
+                var bootboxObj = bootbox.confirm({
+                    size: "small",
+                    title: temp_title,
+                    message: temp_template_element_04_clone_child.html(),
+                    onEscape: true,
+                    show: true,
+                    scrollable: true,
+                    buttons: {
+                        confirm: {
+                            label: 'Yes',
+                            className: 'btn-success',
+                            callback: function(){
+                                //return false;
+                            }
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-danger btn-primary',
+                            callback: function(){
+                                return false;
+                            }
+                        }
+                    },
+                    callback: function (result) {
+                        //console.log(result);
+                        var formObj = $('#' + temp_template_element_04_clone_child_id);
+                        formObj.validator('validate');
+                        var _token = formObj.find("[name='_token']");
+                        var _token_value = _token.val();
+                        var quantity = formObj.find('#quantity');
+                        var quantity_value = quantity.val();
+
+                        if( (result === true) ){
+                            if( (quantity_value == void(0)) || (quantity_value < 0) ){
+                               return false;
+                            }
+                        }
+
+                        if( (result === true) ){
+                            var url = "{!! route('lineKanbanBinRequest.closeLineKanbanRequest01', ['#argument_01']) !!}";
+                            url = url.replace("#argument_01", temp_data_02.id);
+                            //$( location ).attr("href", url);
+                            var formdata = new Object();
+                            formdata._token = _token_value;
+                            formdata.quantity_response =  quantity_value;
+                            formdata.line_kanban_bin_id =  temp_data_01.id;
+                            formdata.line_kanban_bin_request_id =  temp_data_02.id;
+
+                            var requestObject = $.ajax({
+                                url: url,
+                                cache: false,
+                                //quietMillis: 10,
+                                //dataType: 'json',
+                                //delay: 10,
+                                type: "POST",
+                                //method: "POST",
+                                //crossDomain: true,
+                                //timeout: 0,
+                                //context: document.body,
+                                //encode: true,
+                                //processData: false,
+                                //contentType: false,
+                                /*data : {
+                                    //'key': 'value',
+                                },*/
+                                data: formdata,
+                                beforeSend: function( xhr ) {
+                                    //xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+                                },
+                                statusCode: {
+                                    404: function() {
+                                        //console.log( "page not found" );
+                                    }
+                                }
+                            }); 
+                            
+                            requestObject.done(function(data){
+                                swal({
+                                    'title': data.title,
+                                    'text': data.text,
+                                    'type': data.type,
+                                    'timer': data.timer,
+                                    'showConfirmButton': false
+                                });
+                                //$('#dataTableId').DataTable().ajax.reload( null, false ); // user paging is not reset on reload
+                            });
+                            requestObject.fail(function(){
+                                //console.log( "error" );
+                            });
+                            requestObject.always(function(){
+                                //console.log( "finished" );
+                                button_id_03_element.attr("disabled", false);
+                            });
+                        }else{
+                            button_id_03_element.attr("disabled", false);
+                        }
+                    }
+                })
+                    .find('.modal-header').addClass('custom-modal-header')
+                    /*.find('.bootbox-cancel:first').focus()
+                    .find('.bootbox-cancel').attr('autofocus', true)
+                    .on('shown.bs.modal', function(e){
+                        $(this).find(".bootbox-cancel:first").focus();
+                    })*/
+                    .init(function(e){
+                        $(this).find(".bootbox-cancel").focus();
+                    });
+                button_id_03_element.attr("disabled", false);
+            });
+            /* *** */
+            
+            var temp_time_01 = null;
+            var temp_time_02 = temp_data_02.time_request;
+            var temp_countdown_value = 0;
+            if( (temp_time_02 != void(0)) ){
+                temp_time_01 = moment();
+                temp_time_02 = moment(temp_time_02, 'YYYY-MM-DD HH:mm:ss', false);
+                temp_time_02 = temp_time_02.clone().add(time_wait_01, 'minutes');
+                temp_countdown_value = temp_time_02.diff(temp_time_01, 'minutes', false);
+                if( (temp_countdown_value <= 0) ){
+                   temp_countdown_value = 0;
+                }
+            }
+            
+            if( ((status_id_array[0].localeCompare(temp_data_02.status_id)) == 0) ){
+                //open
+                button_id_03_element.attr("disabled", false);
+                button_id_03_element.removeClass("d-none");
+                if( (temp_countdown_value != void(0)) && (temp_countdown_value <= 0) ){
+                    card_id_02_element.removeClass().addClass("small-box bg-danger p-0 m-0 border-0 rounded-1");
+                }else{
+                    card_id_02_element.removeClass().addClass("small-box bg-animation-01 p-0 m-0 border-0 rounded-1");
+                }
+            }else if( ((status_id_array[1].localeCompare(temp_data_02.status_id)) == 0) ){
+                //inprogress
+                card_id_02_element.removeClass().addClass("small-box bg-warning p-0 m-0 border-0 rounded-1");
+                button_id_02_element.attr("disabled", false);
+                button_id_02_element.removeClass("d-none");
+            }else if( ((status_id_array[2].localeCompare(temp_data_02.status_id)) == 0) ){
+                //close
+                card_id_02_element.removeClass().addClass("small-box bg-success p-0 m-0 border-0 rounded-1");
+            }else{
+                //card_id_02_element.removeClass().addClass("small-box bg-success p-0 m-0 border-0 rounded-1");
+                card_id_02_element.removeClass().addClass("small-box bg-animation-01 p-0 m-0 border-0 rounded-1");
+            }
+            
+            countdown_id_01_element.text( temp_countdown_value );
+            
+            countdown_id_02_element.text( temp_countdown_value );
+        }else{
+            //console.log("void(0)");
+            button_id_01_element.attr("disabled", false);
+            button_id_01_element.removeClass("d-none");
+            
+            button_id_01_element.off("click").on("click", function(event){
+                event.preventDefault();
+                //event.stopPropagation();
+                button_id_01_element.attr("disabled", true);
+                var temp_template_element_02_clone = template_element_02_clone;
+                //var temp_template_element_02_clone_child = temp_template_element_02_clone.children().get();
+                var temp_template_element_02_clone_child = temp_template_element_02_clone.children().first();
+                var temp_template_element_02_clone_child_id = ('temp_template_element_02_clone_child_id' + temp_id_01);
+                temp_template_element_02_clone_child.find('form').attr('id', temp_template_element_02_clone_child_id);
+                
+                var temp_title = "";
+                temp_title += "<p class='p-0 m-0 text-xs'>";
+                temp_title += "<span> Line : </span><span> ["+ temp_data_01.line_id +"] </span>";
+                temp_title += "</p>";
+                temp_title += "<p class='p-0 m-0 text-xs'>";
+                temp_title += "<span> Bin : </span><span> ["+ temp_data_01.display_name +"] </span>";
+                temp_title += "</p>";
+                
+                var bootboxObj = bootbox.confirm({
+                    size: "small",
+                    title: temp_title,
+                    message: temp_template_element_02_clone_child.html(),
+                    onEscape: true,
+                    show: true,
+                    scrollable: true,
+                    buttons: {
+                        confirm: {
+                            label: 'Yes',
+                            className: 'btn-success',
+                            callback: function(){
+                                //return false;
+                            }
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-danger btn-primary',
+                            callback: function(){
+                                return false;
+                            }
+                        }
+                    },
+                    callback: function (result) {
+                        //console.log(result);
+                        var formObj = $('#' + temp_template_element_02_clone_child_id);
+                        formObj.validator('validate');
+                        var _token = formObj.find("[name='_token']");
+                        var _token_value = _token.val();
+                        var quantity = formObj.find('#quantity');
+                        var quantity_value = quantity.val();
+
+                        if( (result === true) ){
+                            if( (quantity_value == void(0)) || (quantity_value < 0) ){
+                               return false;
+                            }
+                        }
+
+                        if( (result === true) ){
+                            var url = "{!! route('lineKanbanBinRequest.store', ['#argument_01']) !!}";
+                            url = url.replace("#argument_01", temp_data_01.id);
+                            //$( location ).attr("href", url);
+                            var formdata = new Object();
+                            formdata._token = _token_value;
+                            formdata.quantity_request =  quantity_value;
+                            formdata.line_kanban_bin_id =  temp_data_01.id;
+
+                            var requestObject = $.ajax({
+                                url: url,
+                                cache: false,
+                                //quietMillis: 10,
+                                //dataType: 'json',
+                                //delay: 10,
+                                type: "POST",
+                                //method: "POST",
+                                //crossDomain: true,
+                                //timeout: 0,
+                                //context: document.body,
+                                //encode: true,
+                                //processData: false,
+                                //contentType: false,
+                                /*data : {
+                                    //'key': 'value',
+                                },*/
+                                data: formdata,
+                                beforeSend: function( xhr ) {
+                                    //xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+                                },
+                                statusCode: {
+                                    404: function() {
+                                        //console.log( "page not found" );
+                                    }
+                                }
+                            }); 
+                            
+                            requestObject.done(function(data){
+                                swal({
+                                    'title': data.title,
+                                    'text': data.text,
+                                    'type': data.type,
+                                    'timer': data.timer,
+                                    'showConfirmButton': false
+                                });
+                                //$('#dataTableId').DataTable().ajax.reload( null, false ); // user paging is not reset on reload
+                            });
+                            requestObject.fail(function(){
+                                //console.log( "error" );
+                            });
+                            requestObject.always(function(){
+                                //console.log( "finished" );
+                                button_id_01_element.attr("disabled", false);
+                            });
+                        }else{
+                            button_id_01_element.attr("disabled", false);
+                        }
+                    }
+                })
+                    .find('.modal-header').addClass('custom-modal-header')
+                    /*.find('.bootbox-cancel:first').focus()
+                    .find('.bootbox-cancel').attr('autofocus', true)
+                    .on('shown.bs.modal', function(e){
+                        $(this).find(".bootbox-cancel:first").focus();
+                    })*/
+                    .init(function(e){
+                        $(this).find(".bootbox-cancel").focus();
+                    });
+                button_id_01_element.attr("disabled", false);
+            });
+        }
+        
+        template_element_container_01.append( template_element_01_clone );
+    });
+}
                         /* *** */
                     }
                 }catch(exception){
