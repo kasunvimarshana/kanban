@@ -27,3 +27,7 @@ Route::get('line-kanban-bins/index', array('uses' => 'LineKanbanBinController@in
 Route::get('line-kanban-bin-requests/index', array('uses' => 'LineKanbanBinRequestController@index'))->name('lineKanbanBinRequest.index');
 
 Route::post('line-kanban-bin-requests/store', array('uses' => 'LineKanbanBinRequestController@store'))->name('lineKanbanBinRequest.store');
+
+Route::post('line-kanban-bin-requests/close-01', array('uses' => 'LineKanbanBinRequestController@closeLineKanbanRequest01'))->name('lineKanbanBinRequest.closeLineKanbanRequest01');
+
+Route::post('line-kanban-bin-requests/close-02', array('uses' => 'LineKanbanBinRequestController@closeLineKanbanRequest02'))->name('lineKanbanBinRequest.closeLineKanbanRequest02');

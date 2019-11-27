@@ -44,6 +44,14 @@
 <script src="{!! asset('node_modules/jquery-easy-loading/dist/jquery.loading.min.js') !!}"></script>
 <!-- Bootstrap Validation -->
 <script src="{!! asset('node_modules/bootstrap-validator/dist/validator.min.js') !!}"></script>
+<!-- SweetAlert -->
+<!-- script src="{!! asset('node_modules/sweetalert/dist/sweetalert.min.js') !!}"></script -->
+<!-- Bootstrap-SweetAlert -->
+<script src="{!! asset('node_modules/bootstrap-sweetalert/dist/sweetalert.min.js') !!}"></script>
+<!-- SweetAlert2 -->
+<!-- script src="{!! asset('node_modules/sweetalert2/dist/sweetalert2.all.min.js') !!}"></script -->
+<!-- Promise-Polyfill -->
+<!-- script src="{!! asset('node_modules/promise-polyfill/dist/polyfill.min.js') !!}"></script -->
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

@@ -399,7 +399,7 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                         }
                         */
                         if( (result === true) ){
-                            var url = "{!! route('lineKanbanBin.index', ['#argument_01']) !!}";
+                            var url = "{!! route('lineKanbanBinRequest.closeLineKanbanRequest02', ['#argument_01']) !!}";
                             url = url.replace("#argument_01", temp_data_02.id);
                             //$( location ).attr("href", url);
                             var formdata = new Object();
@@ -528,12 +528,12 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                         }
 
                         if( (result === true) ){
-                            var url = "{!! route('lineKanbanBin.index', ['#argument_01']) !!}";
+                            var url = "{!! route('lineKanbanBinRequest.closeLineKanbanRequest01', ['#argument_01']) !!}";
                             url = url.replace("#argument_01", temp_data_02.id);
                             //$( location ).attr("href", url);
                             var formdata = new Object();
                             formdata._token = _token_value;
-                            formdata.quantity =  quantity_value;
+                            formdata.quantity_response =  quantity_value;
                             formdata.line_kanban_bin_id =  temp_data_01.id;
                             formdata.line_kanban_bin_request_id =  temp_data_02.id;
 
@@ -705,7 +705,7 @@ if( (line_kanban_bin_object_array != void(0)) && (Array.isArray(line_kanban_bin_
                             //$( location ).attr("href", url);
                             var formdata = new Object();
                             formdata._token = _token_value;
-                            formdata.quantity =  quantity_value;
+                            formdata.quantity_request =  quantity_value;
                             formdata.line_kanban_bin_id =  temp_data_01.id;
 
                             var requestObject = $.ajax({

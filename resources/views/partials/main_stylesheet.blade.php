@@ -37,6 +37,10 @@
 <!-- Google Font -->
 <!-- link rel="stylesheet"
 href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"/ -->
+<!-- Bootstrap-SweetAlert -->
+<link rel="stylesheet" href="{!! asset('node_modules/bootstrap-sweetalert/dist/sweetalert.css') !!}"/>
+<!-- SweetAlert2 -->
+<!-- link rel="stylesheet" href="{!! asset('node_modules/sweetalert2/dist/sweetalert2.min.css') !!}"/ -->
 <!-- custom fonts -->
 <link rel="stylesheet" href="{{ asset('css/custom_fonts.css') }}"/>
 <!-- custom stylesheet -->
