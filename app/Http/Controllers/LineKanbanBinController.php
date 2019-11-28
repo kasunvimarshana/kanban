@@ -170,10 +170,10 @@ class LineKanbanBinController extends Controller
                     //$query = $query->select('id');
                     $query = $query->where('is_visible', '=', true);
                     $query = $query->where('is_active', '=', true);
-                    $query = $query->latest();
-                    $query = $query->orderBy('id', 'desc');
-                    $query = $query->orderBy('created_at', 'desc');
-                    $query = $query->limit(5);
+                    //$query = $query->latest();
+                    //$query = $query->orderBy('id', 'desc');
+                    //$query = $query->orderBy('created_at', 'desc');
+                    //$query = $query->limit(1);
                 }));
                 
                 $lineKanbanBinObjectArray = $lineKanbanBinObject->get();
@@ -296,13 +296,20 @@ class LineKanbanBinController extends Controller
                 $lineKanbanBinObject = $lineKanbanBinObject->where('is_visible', '=', true);
                 $lineKanbanBinObject = $lineKanbanBinObject->where('is_active', '=', true);
                 //$lineKanbanBinObject->load(['lineKanbanBinRequests']);
-                $lineKanbanBinObject = $lineKanbanBinObject->with(array('lineKanbanBinRequests'));
+                $lineKanbanBinObject = $lineKanbanBinObject->with(array('lineKanbanBinRequests'=>function($query){
+                    //$query = $query->select('id');
+                    $query = $query->where('is_visible', '=', true);
+                    $query = $query->where('is_active', '=', true);
+                    //$query = $query->latest();
+                    //$query = $query->orderBy('id', 'desc');
+                    //$query = $query->orderBy('created_at', 'desc');
+                    //$query = $query->limit(1);
+                }));
                 
                 $lineKanbanBinObject = $lineKanbanBinObject->whereHas('lineKanbanBinRequests', function($query){
                     $query = $query->where('is_visible', '=', true);
                     $query = $query->where('is_active', '=', true);
-                    $query = $query->limit(1);
-                }, '=', 1);
+                });
                 
                 $lineKanbanBinObjectArray = $lineKanbanBinObject->get();
 
